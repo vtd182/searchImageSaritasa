@@ -1,4 +1,5 @@
 package com.example.searchimagesaritasa.ui.home
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,7 +19,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.searchimagesaritasa.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,8 +39,12 @@ fun SearchBarComponent(
         onSearch = onSearch,
         active = active,
         onActiveChange = { active = it },
-        placeholder = { Text("Search...") },
-        modifier = if (query.isNotEmpty() || historyList.isEmpty()) Modifier.fillMaxWidth().height(55.dp) else Modifier.fillMaxWidth(),
+        placeholder = {
+            Text(stringResource(R.string.search_hint))
+        },
+        modifier = if (query.isNotEmpty() || historyList.isEmpty()) Modifier
+            .fillMaxWidth()
+            .height(55.dp) else Modifier.fillMaxWidth(),
         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
         trailingIcon = {
             if (query.isNotEmpty()) {
@@ -53,7 +60,12 @@ fun SearchBarComponent(
                 LazyColumn(modifier = Modifier.fillMaxWidth()) {
                     items(historyList) { item ->
                         ListItem(
-                            leadingContent = { Icon(Icons.Default.Search, contentDescription = null) },
+                            leadingContent = {
+                                Icon(
+                                    Icons.Default.Search,
+                                    contentDescription = null
+                                )
+                            },
                             modifier = Modifier.clickable {
                                 onSearch(item)
                                 onQueryChange(item)

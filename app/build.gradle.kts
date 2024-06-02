@@ -76,5 +76,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.0.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
-
+    implementation("com.google.accompanist:accompanist-pager:0.26.0")
+    runtimeOnly("com.google.accompanist:accompanist-pager-indicators:0.35.1-alpha")
 }

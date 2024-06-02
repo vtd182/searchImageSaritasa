@@ -1,4 +1,5 @@
 package com.example.searchimagesaritasa.data.model
+import java.io.Serializable
 
 data class Image(
     val title: String,
@@ -13,4 +14,4 @@ data class Image(
     val link: String,
     val googleUrl: String,
     val position: Int
-)
+) : Serializable
