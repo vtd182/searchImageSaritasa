@@ -31,8 +31,13 @@ object ApiClient {
 
     val apiService: SerperApi = retrofit.create(SerperApi::class.java)
 
-    fun createRequestBody(query: String): RequestBody {
-        val json = """{"q":"$query"}"""
-        return json.toRequestBody(mediaType)
+    fun createRequestBody(query: String, page: Int): RequestBody {
+        if (page == 1) {
+            val json = """{"q":"$query"}"""
+            return json.toRequestBody(mediaType)
+        } else {
+            val json = """{"q":"$query","page":$page}"""
+            return json.toRequestBody(mediaType)
+        }
     }
 }
