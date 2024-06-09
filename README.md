@@ -26,4 +26,12 @@ This app is written in Kotlin and utilizes the Serper API for image searching. B
    - The app provides a feature for users to clear the cache within the app, helping free up storage space on their device.
 
 ## Screenshots
+1. Home Screen and Search
+![1](https://github.com/vtd182/searchImageSaritasa/blob/master/demo/1.png)
+2. View full image when click item on Home Screen, Open Browser and share
+![2](https://github.com/vtd182/searchImageSaritasa/blob/master/demo/2.png)
+3. Download image
+![3](https://github.com/vtd182/searchImageSaritasa/blob/master/demo/3.png)
+4. Setting and Change app language
+![4](https://github.com/vtd182/searchImageSaritasa/blob/master/demo/4.png)
 
