@@ -12,7 +12,7 @@ class SearchViewModel(private val repository: ImageRepository) : ViewModel() {
     private val _images = MutableLiveData<List<Image>>()
     val images: LiveData<List<Image>> = _images
 
-    private val _isLoading = MutableLiveData<Boolean>(false)
+    private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _searchHistory = MutableLiveData<List<String>>(emptyList())

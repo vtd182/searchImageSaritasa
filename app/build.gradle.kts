@@ -80,5 +80,5 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.26.0")
     runtimeOnly("com.google.accompanist:accompanist-pager-indicators:0.35.1-alpha")
     implementation("androidx.appcompat:appcompat:1.6.1")
-
+    implementation("androidx.compose.material:material-icons-extended:1.6.7")
 }

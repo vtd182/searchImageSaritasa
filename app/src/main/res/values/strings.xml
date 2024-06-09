@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">searchImageSaritasa</string>
+    <string name="app_name">Image Search</string>
     <string name="search_hint">Search...</string>
     <string name="settings_txt">Settings</string>
     <string name="change_language_txt">Change app language</string>
@@ -9,4 +9,8 @@
     <string name="about_txt">About</string>
     <string name="about_me_txt">About me</string>
     <string name="app_setting_txt">App settings</string>
+    <string name="choose_language_txt">Choose language</string>
+    <string name="english_txt">English</string>
+    <string name="vietnamese_txt">Vietnamese</string>
+    <string name="facebook_txt">Facebook</string>
 </resources>

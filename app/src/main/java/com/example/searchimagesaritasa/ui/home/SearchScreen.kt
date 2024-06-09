@@ -17,6 +17,7 @@ import com.example.searchimagesaritasa.appCache.MyApplication
 import com.example.searchimagesaritasa.data.model.Image
 import com.example.searchimagesaritasa.data.repository.ImageRepository
 import com.example.searchimagesaritasa.ui.imageDetail.ImageDetailActivity
+import com.example.searchimagesaritasa.utils.Constants
 
 @Composable
 fun SearchScreen(
@@ -116,9 +117,6 @@ fun SearchScreen(
 fun ImageItem(image: Image, images: List<Image>) {
     val context = LocalContext.current
     val imageLoader = (context.applicationContext as MyApplication).newImageLoader()
-    val cacheDir = context.cacheDir.resolve("image_cache")
-    Log.e("ImageItem", "Cache: ${image.title}")
-    GlobalFunction.logCacheSize(cacheDir)
 
     Card(
         modifier = Modifier
@@ -126,8 +124,8 @@ fun ImageItem(image: Image, images: List<Image>) {
             .clickable {
                 val selectedImageIndex = images.indexOf(image)
                 val intent = Intent(context, ImageDetailActivity::class.java).apply {
-                    putExtra("images", ArrayList(images))
-                    putExtra("selectedIndex", selectedImageIndex)
+                    putExtra(Constants.IMAGES_KEY, ArrayList(images))
+                    putExtra(Constants.SELECTED_INDEX_KEY, selectedImageIndex)
                 }
                 context.startActivity(intent)
             },

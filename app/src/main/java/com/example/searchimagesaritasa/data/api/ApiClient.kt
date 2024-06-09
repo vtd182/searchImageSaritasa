@@ -31,6 +31,9 @@ object ApiClient {
 
     val apiService: SerperApi = retrofit.create(SerperApi::class.java)
 
+
+    // requestBody: {"q":"query","page":page}
+    // paginating the results
     fun createRequestBody(query: String, page: Int): RequestBody {
         if (page == 1) {
             val json = """{"q":"$query"}"""

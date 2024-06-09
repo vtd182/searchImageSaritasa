@@ -11,7 +11,7 @@ class ImageRepository {
     private val apiService = ApiClient.apiService
 
     fun searchImages(query: String, page: Int, onResult: (ImageResult?) -> Unit) {
-        Log.e("ImageRepository", "searchImages: " + query)
+        Log.e("ImageRepository", "searchImages: $query")
         val body = ApiClient.createRequestBody(query, page)
         apiService.searchImages(body).enqueue(object : Callback<ImageResult> {
             override fun onResponse(call: Call<ImageResult>, response: Response<ImageResult>) {

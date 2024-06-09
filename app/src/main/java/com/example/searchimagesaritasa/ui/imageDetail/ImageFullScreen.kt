@@ -1,22 +1,19 @@
 package com.example.searchimagesaritasa.ui.imageDetail
 
-import android.content.Context
+import com.example.searchimagesaritasa.utils.GlobalFunction
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.Download
+import androidx.compose.material.icons.outlined.OpenInBrowser
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -25,7 +22,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -58,7 +54,7 @@ fun ImageFullScreen(images: List<Image>, selectedIndex: Int, onBack: () -> Unit)
                         context.startActivity(intent)
 
                     }) {
-                        Icon(Icons.Default.Settings, contentDescription = "Settings")
+                        Icon(Icons.Outlined.Settings, contentDescription = "Settings")
                     }
                 },
                 navigationIcon = {
@@ -75,19 +71,19 @@ fun ImageFullScreen(images: List<Image>, selectedIndex: Int, onBack: () -> Unit)
                     horizontalArrangement = Arrangement.Center
                 ) {
                     IconButton(onClick = {
-                        openImageInBrowser(context, images[pagerState.currentPage].imageUrl)
+                        GlobalFunction.openInBrowser(context, images[pagerState.currentPage].imageUrl)
                     }) {
-                        Icon(Icons.Default.Add, contentDescription = "Open in Browser")
+                        Icon(Icons.Outlined.OpenInBrowser, contentDescription = "Open in Browser")
                     }
                     IconButton(onClick = {
-                        shareImage(context, images[pagerState.currentPage].imageUrl)
+                        GlobalFunction.shareImage(context, images[pagerState.currentPage].imageUrl)
                     }) {
-                        Icon(Icons.Default.Share, contentDescription = "Share")
+                        Icon(Icons.Outlined.Share, contentDescription = "Share")
                     }
                     IconButton(onClick = {
-                        downloadImage(context, images[pagerState.currentPage].imageUrl)
+                        GlobalFunction.downloadImage(context, images[pagerState.currentPage].imageUrl)
                     }) {
-                        Icon(Icons.Default.Check, contentDescription = "Download")
+                        Icon(Icons.Outlined.Download, contentDescription = "Download")
                     }
                 }
             }
@@ -112,23 +108,3 @@ fun ImageFullScreen(images: List<Image>, selectedIndex: Int, onBack: () -> Unit)
     )
 }
 
-private fun downloadImage(context: Context, imageUrl: String) {
-    // TODO: Implement image download logic here
-}
-
-private fun openImageInBrowser(context: Context, imageUrl: String) {
-    val intent = Intent(
-        Intent.ACTION_VIEW,
-        Uri.parse(imageUrl)
-    )
-    context.startActivity(intent)
-}
-
-private fun shareImage(context: Context, imageUrl: String) {
-    val imageUri: Uri = Uri.parse(imageUrl)
-    val shareIntent = Intent(Intent.ACTION_SEND).apply {
-        type = "image/*"
-        putExtra(Intent.EXTRA_STREAM, imageUri)
-    }
-    context.startActivity(Intent.createChooser(shareIntent, null))
-}
