@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">searchImageSaritasa</string>
+    <string name="search_hint">Tìm kiếm...</string>
+    <string name="settings_txt">Cài đặt</string>
+    <string name="change_language_txt">Thay đổi ngôn ngữ</string>
+    <string name="language_txt">Ngôn ngữ</string>
+    <string name="cache_txt">Bộ nhớ đệm</string>
+    <string name="clear_cache_txt">Xoá bộ nhớ đệm</string>
+    <string name="about_txt">Thông tin</string>
+    <string name="about_me_txt">Thông tin về tôi</string>
+    <string name="app_setting_txt">Cài đặt ứng dụng</string>
+</resources>

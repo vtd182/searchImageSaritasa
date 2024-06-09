@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">searchImageSaritasa</string>
     <string name="search_hint">Search...</string>
+    <string name="settings_txt">Settings</string>
+    <string name="change_language_txt">Change app language</string>
+    <string name="language_txt">Languages</string>
+    <string name="cache_txt">Cache</string>
+    <string name="clear_cache_txt">Clear cache</string>
+    <string name="about_txt">About</string>
+    <string name="about_me_txt">About me</string>
+    <string name="app_setting_txt">App settings</string>
 </resources>

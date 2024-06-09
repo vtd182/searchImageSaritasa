@@ -15,6 +15,9 @@ class SearchViewModel(private val repository: ImageRepository) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _searchHistory = MutableLiveData<List<String>>(emptyList())
+    val searchHistory: LiveData<List<String>> get() = _searchHistory
+
     private var currentPage = 1
     private var isLastPage = false
     private var lastQuery = ""
@@ -25,8 +28,20 @@ class SearchViewModel(private val repository: ImageRepository) : ViewModel() {
         isLastPage = false
         _images.value = emptyList()
         loadImages()
+
+        // Update search history
+        val currentHistory = _searchHistory.value.orEmpty().toMutableList()
+        if (query.isNotEmpty() && !currentHistory.contains(query)) {
+            currentHistory.add(0, query)
+            if (currentHistory.size > 5) {
+                currentHistory.removeAt(currentHistory.size - 1)
+            }
+            _searchHistory.value = currentHistory
+        }
     }
 
+
+    // Load the next page of images
     fun loadNextPage() {
         if (!_isLoading.value!! && !isLastPage) {
             currentPage++
@@ -34,6 +49,8 @@ class SearchViewModel(private val repository: ImageRepository) : ViewModel() {
         }
     }
 
+
+    // Load images from the repository
     private fun loadImages() {
         _isLoading.value = true
         Log.e("SearchViewModel", "loadImages: $currentPage $lastQuery")
@@ -49,6 +66,7 @@ class SearchViewModel(private val repository: ImageRepository) : ViewModel() {
         }
     }
 
+    // Factory class for creating SearchViewModel instances
     class SearchViewModelFactory(private val repository: ImageRepository) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {

@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.runtime.livedata)
+    implementation("org.jetbrains:annotations:15.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -78,4 +79,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
     implementation("com.google.accompanist:accompanist-pager:0.26.0")
     runtimeOnly("com.google.accompanist:accompanist-pager-indicators:0.35.1-alpha")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+
 }

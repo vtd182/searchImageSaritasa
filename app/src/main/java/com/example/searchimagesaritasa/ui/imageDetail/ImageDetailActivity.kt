@@ -13,6 +13,7 @@ import com.example.searchimagesaritasa.ui.theme.SearchImageSaritasaTheme
 class ImageDetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Get the selected image index from the intent
         val images = intent.getSerializableExtra("images") as? List<Image>
         val selectedIndex = intent.getIntExtra("selectedIndex", 0)
 
